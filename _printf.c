@@ -1,6 +1,8 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <stddef.h>
+#include <stdlib.h>
 
 /**
  * _printf - function that produces output according to format
@@ -12,68 +14,57 @@ int _printf(const char *format, ...)
 
 {
 
+if (format != NULL)
+
+{
+
+int count = 0, i;
+
+int (*m)(va_list);
+
 va_list args;
-
-int i, j, k, count;
-
-var_t type[] = {
-
-{"c", c_func}, {"s", s_func}, {"i", i_func}, {"%", perc_func},
-
-{"d", d_func},	{"b", b_func},	{"r", rev_func}, {"R", rot_func},
-
-{NULL, NULL},
-
-};
 
 va_start(args, format);
 
-i  = 0, count = 0, k = 0;
+i = 0;
 
-if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+if (format[0] == '%' && format[1] == '\0')
+										return (-1);
+
+while (format != NULL && format[i] != '\0')
+										{
+										if (format[i] == '%')
+										{																				if (format[i + 1] == '%')
+										{
+
+count += _putchar(format[i]);
+
+i += 2;
+					
+}
+										else
+										{
+										m = get_func(format[i + 1]);
+																				if (m)																														count += m(args);
+										else																																								count = _putchar(format[i]) + _putchar(format[i + 1]);
+
+i += 2;
+
+}
+
+}
+										else
+										{
+										count += _putchar(format[i]);	
+										i++;																				}
+										}
+
+va_end(args);
+		
+return (count);
+				
+}
 
 return (-1);
 
-while (format && format[i])
-
-{
-
-if (format[i] != '%')
-																	_putchar(format[i]), k++;
-
-else
-																	{
-																	j = 0;
-																	while (type[j].vartype)	
-																	}
-
-if (format[i + 1] == *type[j].vartype)
-
-{
-
-count += (type[j].f)(args), i++;
-
-break;
-																	}
-
-j++;
-
-}
-
-if (type[j].vartype == NULL)
-
-count += 1, _putchar('%');
-
-}
-
-i++;
-
-}
-
-k += count;
-
-va_end(args);
-
-return (k);
-
-}
+{	
