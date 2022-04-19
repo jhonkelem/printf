@@ -14,57 +14,29 @@ int _printf(const char *format, ...)
 
 {
 
-if (format != NULL)
+const char *string;
 
-{
+int cont = 0;
 
-int count = 0, i;
+va_list arg;
 
-int (*m)(va_list);
-
-va_list args;
-
-va_start(args, format);
-
-i = 0;
-
-if (format[0] == '%' && format[1] == '\0')
-										return (-1);
-
-while (format != NULL && format[i] != '\0')
-										{
-										if (format[i] == '%')
-										{																				if (format[i + 1] == '%')
-										{
-
-count += _putchar(format[i]);
-
-i += 2;
-					
-}
-										else
-										{
-										m = get_func(format[i + 1]);
-																				if (m)																														count += m(args);
-										else																																								count = _putchar(format[i]) + _putchar(format[i + 1]);
-
-i += 2;
-
-}
-
-}
-										else
-										{
-										count += _putchar(format[i]);	
-										i++;																				}
-										}
-
-va_end(args);
-		
-return (count);
-				
-}
+if (!format)
 
 return (-1);
 
-{	
+
+va_start(arg, format);
+
+					string = format;
+
+
+
+						cont = loop_format(arg, string);
+
+
+
+							va_end(arg);
+
+								return (cont);
+
+}
