@@ -71,7 +71,7 @@ int print_STR(va_list arg)
 			if (i < 16)
 				_putchar('0');
 
-			print_unsignedIntToHex(str[i], 'A');
+			//print_unsignedIntToHex(str[i], 'A');
 		}
 		else
 			_putchar(str[i]);
