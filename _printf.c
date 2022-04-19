@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 
 {
 
-const char *string;
+	const char *string;
 	int cont = 0;
 	va_list arg;
 
