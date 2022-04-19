@@ -1,40 +1,19 @@
 #ifndef MAIN_H
 #define MAIN_H
 #include <stdio.h>
-#include <stdarg.h>
+#include <stdlib.h>
+#include <stdint.h>
 
 int _putchar(char c);
-void print_numbers(const char *separator, const unsigned int n, ...);
-void print_strings(const char *separator, const unsigned int n, ...);
+int print_number(int n);
 int _printf(const char *format, ...);
-void print_number(int n, int *count);
-
-
-/**
- *
- * struct vartype - struct vartype
- * @vartype: type of variable to be printed
- * @f: the function associated
- */
-
-typedef struct vartype
-
-{
-
-char *vartype;
-
-int (*f)(va_list);
-
-} var_t;
-
-
-int c_func(va_list args);
-int s_func(va_list args);
-int perc_func(va_list args);
-int i_func(va_list args);
-int d_func(va_list args);
-int b_func(va_list args);
-int rev_func(va_list args);
-int rot_func(va_list args);
-
-#endif /* MAIN_H */
+int print_octal(unsigned int n);
+int print_unsig(unsigned int n);
+int print_hexaup(unsigned int n);
+int print_hexalow(unsigned int n);
+int print_bi(unsigned int n);
+int _printstring(char *s);
+int rot13(char *point);
+int print_rev(char *);
+int print_hl(uintptr_t n);
+#endif
