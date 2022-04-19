@@ -27,16 +27,12 @@ return (-1);
 
 va_start(arg, format);
 
-					string = format;
+string = format;
 
+cont = loop_format(arg, string);
 
+va_end(arg);
 
-						cont = loop_format(arg, string);
-
-
-
-							va_end(arg);
-
-								return (cont);
+return (cont);
 
 }
