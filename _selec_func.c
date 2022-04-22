@@ -14,7 +14,7 @@ int (*_selec_func(char c))(va_list)
 	if (c == 's')
 		return (_print_str);
 	if (c == '%')
-		return (_putchar(c));
+		return (_print_char);
 
 	return (NULL);
 }
