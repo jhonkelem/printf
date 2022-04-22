@@ -31,15 +31,14 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == 'c')
 			{
-				_print_char(va_arg(args, int));
+				_print_char(args);
 				n_displayed++;
 				i++;
 			}
 			else if (format[i + 1] == 's')
 			{
 				i++;
-				str = va_arg(args, char *);
-				_print_str(str);
+				_print_str(args);
 			}
 			else if (format[i + 1] == '%')
 			{
