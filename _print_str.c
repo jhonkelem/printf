@@ -11,9 +11,9 @@ int _print_str(char *s)
   int k = 0;
   
   while (str[k] != '\0')
-	{
+  {
     _putchar(str[k]);
     k++;
-	}
+  }
   return (0);
 }
