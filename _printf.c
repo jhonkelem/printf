@@ -1,7 +1,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
+#include <stddef.h>
 #include <unistd.h>
 #include "main.h"
 
@@ -29,23 +29,9 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			if (format[i + 1] == 'c')
-			{
-				_print_char(args);
-				n_displayed++;
-				i++;
-			}
-			else if (format[i + 1] == 's')
-			{
-				i++;
-				_print_str(args);
-			}
-			else if (format[i + 1] == '%')
-			{
-				i++;
-				_putchar('%');
-				n_displayed++;
-			}
+			_selec_func(format[i + 1])(args);
+			i++;
+			n_displayed++;
 		}
 
 		i++;
