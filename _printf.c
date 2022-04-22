@@ -29,13 +29,13 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			if (format[i + 1 ] == 'c')
+			if (format[i + 1] == 'c')
 			{
 				_putchar(va_arg(args, int));
 				n_displayed++;
 				i++;
 			}
-			else if(format[i + 1] == 's')
+			else if (format[i + 1] == 's')
 			{
 				i++;
 				str = va_arg(args, char *);
@@ -59,5 +59,5 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(args);
-	return(n_displayed);
+	return (n_displayed);
 }
