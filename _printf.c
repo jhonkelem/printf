@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == 'c')
 			{
-				_putchar(va_arg(args, int));
+				_print_char(va_arg(args, int));
 				n_displayed++;
 				i++;
 			}
@@ -39,13 +39,7 @@ int _printf(const char *format, ...)
 			{
 				i++;
 				str = va_arg(args, char *);
-				k = 0;
-				while (str[k] != '\0')
-				{
-					_putchar(str[k]);
-					n_displayed++;
-					k++;
-				}
+				_print_str(str);
 			}
 			else if (format[i + 1] == '%')
 			{
