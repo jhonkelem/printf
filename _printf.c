@@ -17,7 +17,7 @@ int _printf(const char *format, ...)
 	int n_displayed = 0;
 	char *str = NULL;
 	va_list args;
-	int (*func)(va_list); 
+	int (*func)(va_list);
 
 	va_start(args, format);
 
