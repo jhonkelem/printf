@@ -3,7 +3,7 @@
 
 /**
  * _print_str - produces output according to a format
- * @s: The string
+ * @args: The argument
  *
  * Return: The number of characters that were printed
  */
