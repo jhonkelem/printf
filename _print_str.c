@@ -9,13 +9,13 @@
  */
 int _print_str(va_list args)
 {
-  int k = 0;
-  char *str = va_arg(args, char *);
-  
-  while (str[k] != '\0')
-  {
-    _putchar(str[k]);
-    k++;
-  }
-  return (0);
+	int k = 0;
+	char *str = va_arg(args, char *);
+
+	while (str[k] != '\0')
+	{
+		_putchar(str[k]);
+		k++;
+	}
+	return (0);
 }
