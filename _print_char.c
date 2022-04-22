@@ -3,7 +3,7 @@
 
 /**
  * _print_char - prints characters
- * @c: The character
+ * @args: The argument
  *
  * Return: The number of characters that were printed
  */
