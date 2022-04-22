@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 
 int (*_selec_func(char c))(va_list)
 {
