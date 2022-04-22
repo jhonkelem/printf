@@ -28,6 +28,12 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			n_displayed++;
 		}
+		else if (format[i + 1] == '%')
+		{
+			i++;
+			_putchar('%');
+			n_displayed++;
+		}
 		else
 		{
 			func = _selec_func(format[i + 1]);
